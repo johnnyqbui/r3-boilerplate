@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { incrementCounter } from '../redux/actions/sample';
 
-export class About extends React.Component {
+export class About extends Component {
   render() {
     return (
       <section>

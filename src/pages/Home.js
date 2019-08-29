@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from '@reach/router';
 
@@ -6,7 +6,7 @@ import ErrorBoundary from '../components/ErrorBoundary';
 import TestError from '../components/TestError';
 import { addInitialLoad } from '../redux/actions/sample';
 
-export class Home extends React.Component {
+export class Home extends Component {
   componentDidMount() {
     this.props.addInitialLoad();
   }
