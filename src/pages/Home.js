@@ -5,6 +5,7 @@ import { Link } from '@reach/router';
 import ErrorBoundary from '../components/ErrorBoundary';
 import TestError from '../components/TestError';
 import { addInitialLoad } from '../redux/actions/sample';
+import H1 from '../components/H1';
 
 export class Home extends Component {
   componentDidMount() {
@@ -14,7 +15,7 @@ export class Home extends Component {
   render() {
     return (
       <section>
-        <h1 className="title">Welcome!</h1>
+        <H1>Welcome!</H1>
         <Link to="/about">Go to about</Link>
 
         <ErrorBoundary>
