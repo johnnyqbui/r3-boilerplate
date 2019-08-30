@@ -1,5 +1,5 @@
 import React from 'React'
-import Button from 'components/Button'
+import { H1, Button } from 'shared'
 
 export default (props) => {
   const incrementCounter = () => {
@@ -9,7 +9,7 @@ export default (props) => {
   return (
     <section>
       <>
-        <h1>About Page</h1>
+        <H1>About Page</H1>
         <Button onClick={incrementCounter}>Increment</Button>
         <p>Current Count: {props.counter}</p>
       </>

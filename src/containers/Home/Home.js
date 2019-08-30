@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from '@reach/router';
 
-import ErrorBoundary from 'components/ErrorBoundary';
-import TestError from 'components/TestError';
-import H1 from 'components/H1';
+import ErrorBoundary from 'shared/ErrorBoundary';
+import TestError from 'shared/TestError';
+import H1 from 'shared/H1';
 
 export default class Home extends Component {
   componentDidMount() {
@@ -15,7 +15,7 @@ export default class Home extends Component {
       <section>
         <H1>Welcome!</H1>
         <Link to="/about">Go to about</Link>
-
+        <Link to="/contact">Go to contact</Link>
         <ErrorBoundary>
           <TestError />
         </ErrorBoundary>
