@@ -19,6 +19,12 @@ module.exports = {
           loader: 'babel-loader',
         }],
       },
+      {
+        // Preprocess 3rd party .css files located in node_modules
+        test: /\.css$/,
+        include: /node_modules/,
+        use: ['style-loader', 'css-loader'],
+      },
     ],
   },
   plugins: [
@@ -27,6 +33,9 @@ module.exports = {
       template: 'index.html',
     }),
   ],
+  resolve: {
+    modules: ['node_modules', 'src']
+  },
   devServer: {
     port: 3000,
     publicPath: '/',
