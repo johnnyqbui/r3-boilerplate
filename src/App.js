@@ -3,11 +3,11 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 
 import store from 'redux/store';
-import LayoutContainer from 'components/LayoutContainer';
+import routes from './routes';
 
 render(
   <Provider store={store}>
-    <LayoutContainer />
+    {routes}
   </Provider>,
   document.getElementById('app'),
 );
