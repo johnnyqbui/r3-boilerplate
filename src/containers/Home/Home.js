@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from '@reach/router';
 
 import ErrorBoundary from 'shared/ErrorBoundary';
 import TestError from 'shared/TestError';
@@ -14,9 +13,7 @@ export default class Home extends Component {
     console.log(this.props)
     return (
       <section>
-        <H1>Welcome!</H1>
-        <Link to="/about">Go to about</Link>
-        <Link to="/contact">Go to contact</Link>
+        <H1>Welcome to the home page</H1>
         <ErrorBoundary>
           <TestError />
         </ErrorBoundary>

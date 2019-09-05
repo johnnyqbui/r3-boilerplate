@@ -1,5 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
+const path = require('path');
 const mode = process.env.NODE_ENV ? process.env.NODE_ENV : 'development';
 
 module.exports = {
@@ -8,16 +8,15 @@ module.exports = {
     main: './src/app.js',
   },
   output: {
-    publicPath: '/',
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].[contenthash].js'
   },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: [/node_modules/],
-        use: [{
-          loader: 'babel-loader',
-        }],
+        use: 'babel-loader',
       },
       {
         // Preprocess 3rd party .css files located in node_modules
@@ -27,14 +26,9 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      hash: true,
-      template: 'index.html',
-    }),
-  ],
   resolve: {
-    modules: ['node_modules', 'src']
+    modules: ['node_modules', 'src'],
+    extensions: ['.js', '.jsx']
   },
   devServer: {
     port: 3000,
@@ -42,4 +36,22 @@ module.exports = {
     historyApiFallback: { index: '/' },
     open: 'Google Chrome'
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      hash: true,
+      template: 'index.html',
+    }),
+  ],
+  optimization: {
+    runtimeChunk: 'single',
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\\/]node_modules[\\\/]/,
+          name: 'vendors',
+          chunks: 'all'
+        }
+      }
+    }
+  }
 };

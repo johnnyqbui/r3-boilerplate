@@ -1,4 +1,9 @@
-import { Helmet } from 'react-helmet'
+import React from 'react';
+import { Helmet } from 'react-helmet';
+import styled from 'styled-components';
+import GlobalStyle from '../../../globalStyle';
+import Routes from 'router/Routes';
+import NavBar from 'router/NavBar';
 
 const AppWrapper = styled.div`
   max-width: calc(768px + 16px * 2);
@@ -9,15 +14,17 @@ const AppWrapper = styled.div`
   flex-direction: column;
 `;
 
-export default function App() {
+const App = () => {
   return (
     <AppWrapper>
       <Helmet titleTemplate="%s - Sample" defaultTitle="Sample">
         <meta name="description" content="Sample content" />
       </Helmet>
-      <Header />
-      <Footer />
+      <Routes />
+      <NavBar />
       <GlobalStyle />
     </AppWrapper>
   );
 }
+
+export default App
