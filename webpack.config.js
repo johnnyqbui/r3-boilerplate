@@ -34,7 +34,6 @@ module.exports = {
     port: 3000,
     publicPath: '/',
     historyApiFallback: { index: '/' },
-    open: 'Google Chrome'
   },
   plugins: [
     new HtmlWebpackPlugin({

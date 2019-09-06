@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Router } from '@reach/router';
 
-import Home from 'containers/Home';
-import About from 'containers/About/';
-import NotFound from 'containers/NotFound';
+const Home = lazy(() => import("containers/Home"));
+const About = lazy(() => import("containers/About"));
+const NotFound = lazy(() => import("containers/NotFound"));
 
 const Routes = () => (
-  <Router>
-    <Home path="/" />
-    <About path="/about" />
-    <NotFound default />
-  </Router>
+  <Suspense fallback={<div>Loading...</div>}>
+    <Router>
+      <Home path="/" />
+      <About path="/about" />
+      <NotFound default />
+    </Router>
+  </Suspense>
 );
 
 export default Routes
